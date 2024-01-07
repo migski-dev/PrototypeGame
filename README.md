@@ -2,6 +2,7 @@
 
  - **Method Down, Signal Up**
 	 - Use Methods to communicate data to descendant Nodes in the Scene Tree, and use Signals to communicate data to ancestor Nodes up the Scene Tree.
+  	  - It is possible to "bubble" the signals up through several Nodes, if possible, in order to reach the target Node
  - **Creating Scenes**
 	 - Try to maintain focused, singular-purpose Scenes with loose coupling to other parts of the codebase in order to improve reusability and maintainability. (Single Responsibility Principle).
 	 - Try to have Objects only interact with themselves. Instead of having Object A modify Object B, have Object B react to Object A. (Encapsulation).   
