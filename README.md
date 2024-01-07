@@ -1,4 +1,5 @@
 # General Practices
+Link to Godot's documentation on best practices: https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
 
  - **Method Down, Signal Up**
 	 - Use Methods to communicate data to descendant Nodes in the Scene Tree, and use Signals to communicate data to ancestor Nodes up the Scene Tree.
@@ -13,8 +14,8 @@
 	 - To ensure Scenes only have one instance, you can autoload nodes at the root of the project, allowing you to access methods or data to be reused globally.
 	 - Autoloaded nodes are not freed when you change the scene from code with `SceneTree.change_scene_to_file`.
  - **Managers** 
-	 - Try to use Manager scenes to handle the behavior of multiple instances of the same Object. 
-	 
+	 - Try to use Manager scenes to handle the behavior of multiple instances of the same Object.
+
 # Style Guide
 
  - Use **snake_case** for folder, file names and variable names.
@@ -33,3 +34,13 @@
 	 - **manager** - any scenes that handle the behavior of multiple instances of the same class. 
 	 - **ui** - any scenes that handle the user interface.
 
+# Tips
+- **Documentation**
+ 	- Read the documentation thoroughly and whenever possible
+	- Hold **Ctrl** while hovering over a Node method or Node property to directly open the documentation in the editor
+- **Variables**
+	- Variables and function arguments should be strongly typed (e.g. var number : float or var number = 2 as float)
+ 	- Variable names should be sensical without making them too long
+- **General**
+  	- add comments above every function or loop (if needed) to explain its function for other programmers
+  	- when you need to reference a PackedScene's data and its within the *current* SceneTree, **drag and drop** the Node into the requester Node's @export field; otherwise, you'll get a null reference error
