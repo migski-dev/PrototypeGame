@@ -6,4 +6,4 @@
 [node name="DialogueHandler" type="Node"]
 script = ExtResource("1_jddsc")
 dialogue_res = ExtResource("2_cfmn1")
-title_array = Array[String](["title1", "title2", "title3"])
+title_array = Array[StringName]([&"title1", &"title2", &"title3"])
