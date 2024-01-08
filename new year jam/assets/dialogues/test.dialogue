@@ -1,0 +1,23 @@
+~ title1
+
+Black hole: this is title 1
+Black hole: this is a choice
+- first
+	God: you go to the start
+	=> title1
+- second
+	Black hole: goodbye
+	=> END
+- End the conversation => END
+
+~ title2
+Black hole: this is title2
+Black hole: this is title2 part 2
+=> END
+
+~ title3
+Black hole: this is title3
+Black hole: this is title3 part 2
+=> END
+
+=> END

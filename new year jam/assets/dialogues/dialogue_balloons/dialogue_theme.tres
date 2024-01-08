@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://c2ovrb67ifx60"]
+
+[ext_resource type="FontFile" uid="uid://dn5vvdt0pfq1m" path="res://assets/dialogues/dialogue_balloons/font_file_dialogue.tres" id="1_w1064"]
+[ext_resource type="Texture2D" uid="uid://4aicsrqjanhf" path="res://assets/temp-dial-button-4y.png" id="2_4q22f"]
+[ext_resource type="StyleBox" uid="uid://do058pb7noxhw" path="res://assets/dialogues/dialogue_balloons/dialogue4xtheme.tres" id="2_e4m4a"]
+[ext_resource type="StyleBox" uid="uid://dsya07qjk1g74" path="res://assets/dialogues/dialogue_balloons/button_tex.tres" id="3_m2nv7"]
+[ext_resource type="Texture2D" uid="uid://b2646622qkt2k" path="res://assets/temp-dial-button-pressed-4x.png" id="4_14upa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7i7h0"]
+texture = ExtResource("2_4q22f")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hq7f"]
+texture = ExtResource("2_4q22f")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+modulate_color = Color(1.4, 1.4, 1.4, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atd4m"]
+texture = ExtResource("4_14upa")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[resource]
+default_font = ExtResource("1_w1064")
+default_font_size = 24
+Button/colors/font_colour = Color(0.733333, 0.690196, 0.580392, 1)
+Button/fonts/font = ExtResource("1_w1064")
+Button/styles/disabled = SubResource("StyleBoxTexture_7i7h0")
+Button/styles/focus = ExtResource("3_m2nv7")
+Button/styles/hover = SubResource("StyleBoxTexture_1hq7f")
+Button/styles/normal = ExtResource("3_m2nv7")
+Button/styles/pressed = SubResource("StyleBoxTexture_atd4m")
+Label/colors/font_color = Color(0.733333, 0.690196, 0.580392, 1)
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 16
+Panel/styles/panel = ExtResource("2_e4m4a")
