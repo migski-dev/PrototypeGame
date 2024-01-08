@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://df4xityvlxgrr"]
+
+[ext_resource type="Texture2D" uid="uid://6mnt0uinecs8" path="res://icon.svg" id="1_dudiw"]
+[ext_resource type="PackedScene" uid="uid://bhsmngj7x2aco" path="res://scenes/components/orbit_box/orbit_box.tscn" id="2_glcty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7470"]
+radius = 202.943
+
+[node name="Star" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g7470")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dudiw")
+
+[node name="OrbitBox" parent="." instance=ExtResource("2_glcty")]
