@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://fuk5sdy1ac3b"]
+
+[ext_resource type="Script" path="res://scenes/game_object/rotating_planet/rotating_planet.gd" id="1_7183q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f1dau"]
+load_path = "res://.godot/imported/placeholder_planet.png-eecd221ca5bff7326a3ca0332f6fe68e.ctex"
+
+[node name="RotatingPlanet" type="Sprite2D"]
+position = Vector2(470, 343)
+texture = SubResource("CompressedTexture2D_f1dau")
+script = ExtResource("1_7183q")
+rotation_speed = 1.0
