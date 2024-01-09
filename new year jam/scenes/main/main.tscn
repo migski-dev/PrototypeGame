@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=9 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="Texture2D" uid="uid://bmqipqpbnj7go" path="res://assets/colour_palette.png" id="2_r0h23"]
 [ext_resource type="PackedScene" uid="uid://bxpvjoirm48mm" path="res://scenes/manager/star_manager/star_manager.tscn" id="3_rhy5l"]
 [ext_resource type="PackedScene" uid="uid://bp3l8aovtvlcw" path="res://scenes/game_object/player/player.tscn" id="4_wlri3"]
+[ext_resource type="PackedScene" uid="uid://j21yomhehfx0" path="res://scenes/manager/orbit_manager/orbit_manager.tscn" id="5_fckb1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63evu"]
 texture = ExtResource("1_2a3hw")
@@ -124,4 +125,9 @@ layer_1/tile_data = PackedInt32Array(2162692, 2359297, 0, 1048581, 2359297, 0, 1
 [node name="StarManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_rhy5l")]
 tilemap = NodePath("../TileMap")
 
+[node name="OrbitManager" parent="." instance=ExtResource("5_fckb1")]
+
 [node name="Player" parent="." instance=ExtResource("4_wlri3")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true

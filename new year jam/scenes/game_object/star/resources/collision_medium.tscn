@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbswhjtnythkk"]
+
+[ext_resource type="Shape2D" uid="uid://dox0xfk8t6gbv" path="res://scenes/game_object/star/resources/medius_radius.tres" id="1_p7k63"]
+
+[node name="CollisionShape2D" type="CollisionShape2D"]
+shape = ExtResource("1_p7k63")
