@@ -4,16 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://bhxckgi4kchs6" path="res://assets/player-placeholder-16.png" id="2_ffgov"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfra7"]
-radius = 132.639
+radius = 10.2956
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_m2iwv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -109)
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(1, 1.00258)
 texture = ExtResource("2_ffgov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -109)
+position = Vector2(1, 2.08165e-12)
 shape = SubResource("CircleShape2D_sfra7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
