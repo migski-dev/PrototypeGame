@@ -13,7 +13,7 @@ func _ready():
 	var star_count = randi_range(min_stars, max_stars)
 	for n in range(star_count):
 		create_star_in_random_position(spawn_locations)
-
+	
 func create_star_in_random_position(spawn_locations: Array[Vector2i]):
 	var random_spawn_location = getSpawnLocation(spawn_locations)
 	var converted_location = convert_grid_location_to_global(random_spawn_location)
