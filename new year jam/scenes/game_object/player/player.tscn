@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp3l8aovtvlcw"]
+[gd_scene load_steps=10 format=3 uid="uid://bp3l8aovtvlcw"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_m2iwv"]
 [ext_resource type="Texture2D" uid="uid://bhxckgi4kchs6" path="res://assets/player-placeholder-16.png" id="2_ffgov"]
+[ext_resource type="PackedScene" uid="uid://dt6km7owkblb" path="res://scenes/components/orbit_detection/orbit_detection.tscn" id="3_jljpd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfra7"]
-radius = 10.2956
+radius = 8.0
 
 [sub_resource type="Curve" id="Curve_821y6"]
 max_value = 100.0
@@ -12,17 +13,31 @@ _data = [Vector2(0, 100), 0.0, 65.2015, 0, 0, Vector2(0.460674, 56.044), 83.8305
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_ghuq4"]
-_data = [Vector2(0.207865, 1), 0.0, 0.529762, 0, 0, Vector2(0.876405, 0.274725), 0.0, 0.0, 0, 0]
+max_value = 1.5
+_data = [Vector2(0, 1.45055), 0.0, -0.0929072, 0, 0, Vector2(0.991936, 0.0989012), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_u6qy6"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.193333, 0.553333, 0.82)
-colors = PackedColorArray(0.968627, 0.937255, 0.780392, 1, 0.831646, 0.602764, 0.544656, 1, 0.8, 0.52549, 0.490196, 1)
+offsets = PackedFloat32Array(0.193333, 0.553333, 0.82, 1)
+colors = PackedColorArray(0.968627, 0.937255, 0.780392, 1, 0.831373, 0.603922, 0.545098, 0.756863, 0.8, 0.52549, 0.490196, 0.466667, 0.8, 0.52549, 0.490196, 0)
+
+[sub_resource type="Curve" id="Curve_p7kfj"]
+_data = [Vector2(0, 1), 0.0, -0.435482, 0, 1, Vector2(1, 0), -3.02808, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_a7dra"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 240.465, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_m2iwv")
+
+[node name="OrbitExitTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -34,16 +49,43 @@ shape = SubResource("CircleShape2D_sfra7")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
-amount = 128
+amount = 64
 lifetime = 1.5
-randomness = 0.5
-lifetime_randomness = 0.5
+speed_scale = 2.0
+randomness = 0.45
 emission_shape = 1
 emission_sphere_radius = 1.0
+spread = 90.0
 gravity = Vector2(0, 0)
+tangential_accel_min = 10.0
+tangential_accel_max = 10.0
 damping_max = 16.0
 damping_curve = SubResource("Curve_821y6")
 scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_ghuq4")
 color = Color(0.968627, 0.937255, 0.780392, 1)
 color_ramp = SubResource("Gradient_u6qy6")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+amount = 12
+speed_scale = 0.5
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+linear_accel_min = -150.0
+linear_accel_max = -150.0
+linear_accel_curve = SubResource("Curve_p7kfj")
+damping_curve = SubResource("Curve_a7dra")
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ghuq4")
+color = Color(0.968627, 0.937255, 0.780392, 1)
+color_ramp = SubResource("Gradient_u6qy6")
+
+[node name="OrbitDetection" parent="." instance=ExtResource("3_jljpd")]
+
+[connection signal="area_entered" from="OrbitDetection" to="." method="_on_orbit_detection_area_entered"]

@@ -3,6 +3,11 @@ class_name Star
 
 @export var star_size: Array[String] =  ["Small", "Medium", "Large"]
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var orbit_box = $OrbitBox
+@onready var rotate_anchor = $RotateAnchor
+var orbit_point
+
+signal star_orbit_entered(star)
 
 var orbit_size # for the orbit component
 
@@ -10,8 +15,17 @@ var orbit_size # for the orbit component
 func _ready():
 	randomize()
 	var size = get_random_size()
-	orbit_size = size
 	set_sprite_scale(size)
+	
+	orbit_size = convert_size_to_int(size)
+	
+	orbit_box.set_orbit_size(orbit_size)
+	rotate_anchor.set_orbit_snap_distance(orbit_size)
+	
+	orbit_box.area_entered.connect(on_orbit_entered)
+	orbit_box.area_exited.connect(on_orbit_exited)
+	
+	orbit_point = rotate_anchor.snap_point
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,3 +45,23 @@ func set_sprite_scale(sprite_size: String):
 		"Large":
 			sprite.scale = Vector2(3,3)
 			return
+
+func convert_size_to_int(size):
+	match size:
+		"Small":
+			return 30
+		"Medium":
+			return 45
+		"Large":
+			return 90
+
+func on_orbit_entered(area):
+	var body = area.get_parent()
+	rotate_anchor.snap_point_to_player_on_radius(body)
+	rotate_anchor.orbit_speed_mod = orbit_size
+	rotate_anchor.orbit_started = true
+	rotate_anchor.rotation_dir = 1 if area.global_position.x > orbit_point.global_position.x else -1
+	star_orbit_entered.emit(self)
+
+func on_orbit_exited(area):
+	rotate_anchor.orbit_started = false

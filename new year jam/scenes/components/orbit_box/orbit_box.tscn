@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://bhsmngj7x2aco"]
+[gd_scene load_steps=3 format=3 uid="uid://bhsmngj7x2aco"]
+
+[ext_resource type="Script" path="res://scenes/components/orbit_box/orbit_box.gd" id="1_84e6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8evr0"]
+resource_local_to_scene = true
 
 [node name="OrbitBox" type="Area2D"]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_84e6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8evr0")
