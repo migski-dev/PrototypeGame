@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxnybk67rxr0l"]
+
+[ext_resource type="FontFile" uid="uid://dn5vvdt0pfq1m" path="res://assets/dialogues/dialogue_balloons/font_file_dialogue.tres" id="1_l4h6d"]
+[ext_resource type="Script" path="res://scenes/ui/exit_prompt.gd" id="1_leypy"]
+
+[sub_resource type="Animation" id="Animation_cx7hl"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kqxdl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7qyl"]
+_data = {
+"RESET": SubResource("Animation_kqxdl"),
+"fade_out": SubResource("Animation_cx7hl")
+}
+
+[node name="ExitPrompt" type="CanvasLayer"]
+script = ExtResource("1_leypy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="Label" type="Label" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_l4h6d")
+theme_override_font_sizes/font_size = 24
+text = "Exiting orbit..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o7qyl")
+}
+speed_scale = 2.0

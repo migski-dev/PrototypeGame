@@ -24,6 +24,8 @@ signal entered_star_orbit(star : Star)
 # takes no arguments since star should be the last star landed on
 signal exiting_star_orbit
 
+signal timer_value() # for the UI
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	exit_timer.timeout.connect(on_exit_timer_timeout)
@@ -35,6 +37,7 @@ func on_exit_timer_timeout():
 func _process(delta):
 	if is_orbiting:
 		if Input.is_action_just_pressed("space"):
+			timer_value.emit()
 			exit_timer.start()
 		
 		if Input.is_action_just_released("space"):

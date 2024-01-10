@@ -68,7 +68,7 @@ color_ramp = SubResource("Gradient_u6qy6")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 show_behind_parent = true
-amount = 10
+amount = 12
 speed_scale = 0.5
 randomness = 1.0
 emission_shape = 1

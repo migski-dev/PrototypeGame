@@ -17,7 +17,7 @@ func _ready():
 	var size = get_random_size()
 	set_sprite_scale(size)
 	
-	var orbit_size = convert_size_to_int(size)
+	orbit_size = convert_size_to_int(size)
 	
 	orbit_box.set_orbit_size(orbit_size)
 	rotate_anchor.set_orbit_snap_distance(orbit_size)
@@ -58,7 +58,9 @@ func convert_size_to_int(size):
 func on_orbit_entered(area):
 	var body = area.get_parent()
 	rotate_anchor.snap_point_to_player_on_radius(body)
+	rotate_anchor.orbit_speed_mod = orbit_size
 	rotate_anchor.orbit_started = true
+	rotate_anchor.rotation_dir = 1 if area.global_position.x > orbit_point.global_position.x else -1
 	star_orbit_entered.emit(self)
 
 func on_orbit_exited(area):

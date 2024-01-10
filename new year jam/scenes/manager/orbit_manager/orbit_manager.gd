@@ -12,16 +12,6 @@ const ORBIT_FOLLOW_ACCEL = 50
 signal orbit_exited
 # my wish is for this to control player orbit movement
 
-func get_projected_position(vec : Vector2):
-	var x = vec.x
-	var y = vec.y
-	var angle = star_to_orbit.rotate_anchor.rotation
-	# r = A * cos omega i + A sin omega t
-	var a = x * cos(angle) - y * sin(angle)
-	var b = y * cos(angle) - x * sin(angle)
-	
-	return Vector2(a, b)
-
 func _ready():
 	stars = get_tree().get_nodes_in_group("stars")
 	player.entered_star_orbit.connect(on_player_enter_orbit)

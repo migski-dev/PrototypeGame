@@ -3,17 +3,16 @@ extends Node2D
 
 var orbit_started : bool = false
 
-var orbit_speed_mod
+var orbit_speed_mod = 1
 
 var rotation_dir : int = 1 # can either be 1 or -1
 
 func _process(delta):
 	if orbit_started:
-		if get_parent().orbit_size == 90:
-			print("large")
-			rotate(0.1 * rotation_dir * delta)
+		if orbit_speed_mod == 90:
+			rotate(0.5* rotation_dir * delta)
 		else:
-			rotate(1 * rotation_dir *delta)
+			rotate(1 * rotation_dir * delta)
 	
 
 func set_orbit_snap_distance(size):

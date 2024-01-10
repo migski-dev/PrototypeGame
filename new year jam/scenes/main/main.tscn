@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=13 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="PackedScene" uid="uid://dk0xl3if1c4ne" path="res://scenes/ui/stamina_bar.tscn" id="1_k22fg"]
+[ext_resource type="PackedScene" uid="uid://dxnybk67rxr0l" path="res://scenes/ui/exit_prompt.tscn" id="2_ckfdl"]
 [ext_resource type="Texture2D" uid="uid://bmqipqpbnj7go" path="res://assets/colour_palette.png" id="2_r0h23"]
 [ext_resource type="PackedScene" uid="uid://bxpvjoirm48mm" path="res://scenes/manager/star_manager/star_manager.tscn" id="3_rhy5l"]
 [ext_resource type="PackedScene" uid="uid://j21yomhehfx0" path="res://scenes/manager/orbit_manager/orbit_manager.tscn" id="4_dkndy"]
@@ -125,17 +126,15 @@ func _ready():
 	var worldSizeInPixels = mapRect.size * tileSize
 	limit_right = worldSizeInPixels.x
 	limit_bottom = worldSizeInPixels.y
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 "
 
 [node name="Main" type="Node2D"]
 
 [node name="StaminaBar" parent="." node_paths=PackedStringArray("stamina_manager") instance=ExtResource("1_k22fg")]
 stamina_manager = NodePath("../StaminaManager")
+
+[node name="ExitPrompt" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ckfdl")]
+player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3e1r1")
