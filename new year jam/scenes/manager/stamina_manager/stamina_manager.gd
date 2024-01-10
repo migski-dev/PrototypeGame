@@ -14,13 +14,13 @@ func _ready():
 func increment_stamina(number: float):
 	current_stamina += number
 	stamina_updated.emit(current_stamina)
-	print(current_stamina)
+	#print(current_stamina)
 	
 
 func decrement_stamina(number:float):
 	current_stamina -= number
 	stamina_updated.emit(current_stamina)
-	print(current_stamina)
+	#print(current_stamina)
 
 
 func on_player_move(stamina_drain: float):

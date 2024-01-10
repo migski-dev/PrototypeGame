@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp3l8aovtvlcw"]
+[gd_scene load_steps=10 format=3 uid="uid://bp3l8aovtvlcw"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_m2iwv"]
 [ext_resource type="Texture2D" uid="uid://bhxckgi4kchs6" path="res://assets/player-placeholder-16.png" id="2_ffgov"]
+[ext_resource type="PackedScene" uid="uid://dt6km7owkblb" path="res://scenes/components/orbit_detection/orbit_detection.tscn" id="3_jljpd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfra7"]
-radius = 10.2956
+radius = 8.0
 
 [sub_resource type="Curve" id="Curve_821y6"]
 max_value = 100.0
@@ -33,6 +34,10 @@ point_count = 2
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_m2iwv")
+
+[node name="OrbitExitTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -80,3 +85,7 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_ghuq4")
 color = Color(0.968627, 0.937255, 0.780392, 1)
 color_ramp = SubResource("Gradient_u6qy6")
+
+[node name="OrbitDetection" parent="." instance=ExtResource("3_jljpd")]
+
+[connection signal="area_entered" from="OrbitDetection" to="." method="_on_orbit_detection_area_entered"]

@@ -84,6 +84,14 @@ move_right={
 
 locale/translations_pot_files=PackedStringArray("res://assets/dialogues/test.dialogue")
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="stars"
+2d_physics/layer_3="star_orbits"
+2d_physics/layer_4="asteroids"
+2d_physics/layer_5="player_orbit_detect"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

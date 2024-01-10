@@ -6,7 +6,7 @@ extends Node2D
 @export var tilemap: TileMap
 
 var min_stars = 10
-var max_stars = 20
+var max_stars = 10
 
 func _ready():
 	var spawn_locations = tilemap.get_used_cells_by_id(1)
