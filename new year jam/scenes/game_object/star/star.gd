@@ -3,17 +3,15 @@ class_name Star
 
 @export var star_size: Array[String] =  ["Small", "Medium", "Large"]
 @onready var sprite: Sprite2D = $Sprite2D
-@export var is_starting_star: bool
 
 var orbit_size # for the orbit component
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	var size =  "Medium" if is_starting_star else get_random_size()
+	var size = get_random_size()
 	orbit_size = size
 	set_sprite_scale(size)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
