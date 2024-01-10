@@ -17,12 +17,10 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_u6qy6"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.17, 0.506667, 0.81)
+offsets = PackedFloat32Array(0.246667, 0.413333, 0.7)
 colors = PackedColorArray(0.968627, 0.937255, 0.780392, 1, 0.831646, 0.602764, 0.544656, 1, 0.8, 0.52549, 0.490196, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-disable_mode = 2
-collision_priority = 2.08165e-12
 motion_mode = 1
 script = ExtResource("1_m2iwv")
 
@@ -32,9 +30,6 @@ scale = Vector2(1, 1.00258)
 texture = ExtResource("2_ffgov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
 shape = SubResource("CircleShape2D_sfra7")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

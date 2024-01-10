@@ -1,24 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://df4xityvlxgrr"]
+[gd_scene load_steps=4 format=3 uid="uid://df4xityvlxgrr"]
 
 [ext_resource type="Script" path="res://scenes/game_object/star/star.gd" id="1_f1qur"]
 [ext_resource type="Texture2D" uid="uid://df6e0ekeexwqw" path="res://assets/player-placeholder.png" id="1_fx2rj"]
-[ext_resource type="PackedScene" uid="uid://bhsmngj7x2aco" path="res://scenes/components/orbit_box/orbit_box.tscn" id="2_glcty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g7470"]
 radius = 12.0
 
-[node name="Star" type="Area2D"]
+[node name="Star" type="Area2D" groups=["stars"]]
 script = ExtResource("1_f1qur")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
 shape = SubResource("CircleShape2D_g7470")
-disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_fx2rj")
-
-[node name="OrbitBox" parent="." instance=ExtResource("2_glcty")]
-disable_mode = 2
