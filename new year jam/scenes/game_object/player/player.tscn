@@ -17,7 +17,7 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_u6qy6"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.246667, 0.413333, 0.7)
+offsets = PackedFloat32Array(0.193333, 0.553333, 0.82)
 colors = PackedColorArray(0.968627, 0.937255, 0.780392, 1, 0.831646, 0.602764, 0.544656, 1, 0.8, 0.52549, 0.490196, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
