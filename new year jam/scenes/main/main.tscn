@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=12 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="Texture2D" uid="uid://bmqipqpbnj7go" path="res://assets/colour_palette.png" id="2_r0h23"]
+[ext_resource type="Script" path="res://scenes/game_object/star/star.gd" id="3_07lrs"]
+[ext_resource type="PackedScene" uid="uid://df4xityvlxgrr" path="res://scenes/game_object/star/star.tscn" id="3_reg2q"]
 [ext_resource type="PackedScene" uid="uid://bxpvjoirm48mm" path="res://scenes/manager/star_manager/star_manager.tscn" id="3_rhy5l"]
 [ext_resource type="PackedScene" uid="uid://bp3l8aovtvlcw" path="res://scenes/game_object/player/player.tscn" id="4_wlri3"]
 [ext_resource type="PackedScene" uid="uid://j21yomhehfx0" path="res://scenes/manager/orbit_manager/orbit_manager.tscn" id="5_fckb1"]
+[ext_resource type="Script" path="res://scenes/main/FollowCam.gd" id="6_iehu5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63evu"]
 texture = ExtResource("1_2a3hw")
@@ -121,13 +124,25 @@ layer_0/tile_data = PackedInt32Array(0, 524289, 0, 65536, 524289, 0, 131072, 524
 layer_1/name = "star_spawn_location"
 layer_1/enabled = false
 layer_1/tile_data = PackedInt32Array(2162692, 2359297, 0, 1048581, 2359297, 0, 1048587, 2359297, 0, 589838, 2359297, 0, 393231, 2359297, 0, 917519, 2359297, 0, 1900564, 2359297, 0, 2031639, 2359297, 0, 2293785, 2359297, 0, 1638426, 2359297, 0, 1900572, 2359297, 0, 524318, 2359297, 0, 2424870, 2359297, 0, 1638405, 2359297, 1, 1441804, 2359297, 1, 2293775, 2359297, 1, 1835017, 2359297, 1, 1114139, 2359297, 1, 1376290, 2359297, 1, 1310758, 2359297, 1, 1769507, 2359297, 1, 589858, 2359297, 1, 327718, 2359297, 1, 458778, 2359297, 1, 655367, 2359297, 1, 1114133, 2359297, 1, 786458, 2359297, 1, 2097185, 2424833, 1, 1376274, 2424833, 1, 196628, 2424833, 1, 2031631, 2424833, 1, 1048610, 2424833, 1, 327688, 2424833, 1, 196618, 2424833, 1, 1048617, 2359297, 1, 720938, 2359297, 1, 1769514, 2359297, 0, 2162732, 2424833, 1, 1507373, 2359297, 1, 1245231, 2424833, 1, 2359343, 2424833, 1, 589873, 2359297, 1, 327730, 2359297, 1, 1638450, 2424833, 1, 2031666, 2359297, 1, 1048629, 2359297, 0, 1572919, 2359297, 0, 2424888, 2359297, 0, 589882, 2359297, 1, 1048634, 2424833, 1, 1966138, 2424833, 1, 2359355, 2359297, 0, 327740, 2424833, 1, 1507388, 2359297, 0, 786495, 2359297, 1, 1179711, 2359297, 1, 524352, 2424833, 1, 1114178, 2359297, 1, 1769538, 2359297, 0, 393283, 2424833, 1)
+script = ExtResource("3_07lrs")
+
+[node name="Player" parent="TileMap" instance=ExtResource("4_wlri3")]
+position = Vector2(132, 189)
+
+[node name="FollowCam" type="Camera2D" parent="TileMap/Player" node_paths=PackedStringArray("tilemap")]
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 288
+position_smoothing_enabled = true
+script = ExtResource("6_iehu5")
+tilemap = NodePath("../..")
+
+[node name="Star" parent="TileMap" instance=ExtResource("3_reg2q")]
+position = Vector2(74, 190)
 
 [node name="StarManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_rhy5l")]
+position = Vector2(2.08165e-12, 2.08165e-12)
 tilemap = NodePath("../TileMap")
 
 [node name="OrbitManager" parent="." instance=ExtResource("5_fckb1")]
-
-[node name="Player" parent="." instance=ExtResource("4_wlri3")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position_smoothing_enabled = true

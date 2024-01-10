@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	var dir: Vector2 = get_movement_vector()
 	var target_velocity = dir * MAX_SPEED
-	
+
 	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCEL_SMOOTHING))
 	move_and_slide()
 
