@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=18 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="PackedScene" uid="uid://dk0xl3if1c4ne" path="res://scenes/ui/stamina_bar.tscn" id="1_k22fg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://chaqq3ne7ph04" path="res://scenes/manager/stamina_manager/stamina_manager.tscn" id="6_yo2y2"]
 [ext_resource type="PackedScene" uid="uid://ew0w1b3u16cp" path="res://scenes/game_object/wormhole/worm_hole.tscn" id="9_c8cda"]
 [ext_resource type="AudioStream" uid="uid://j68steh85wqq" path="res://assets/soundFX/OGG_Game_Jam_track.ogg" id="9_tk5un"]
+[ext_resource type="PackedScene" uid="uid://cw3yqt48slpkc" path="res://scenes/manager/transition_manager/transition_manager.tscn" id="11_8nur0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63evu"]
 texture = ExtResource("1_2a3hw")
@@ -170,9 +171,12 @@ player = NodePath("../Player")
 [node name="StarManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_rhy5l")]
 tilemap = NodePath("../TileMap")
 
-[node name="wormhole" parent="." instance=ExtResource("9_c8cda")]
-position = Vector2(1739.33, 411)
+[node name="wormhole" parent="." node_paths=PackedStringArray("transition_manager") instance=ExtResource("9_c8cda")]
+position = Vector2(1718.3, 548)
 scale = Vector2(0.294661, 0.279573)
+transition_manager = NodePath("../TransitionLayer")
+
+[node name="TransitionLayer" parent="." instance=ExtResource("11_8nur0")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("orbit_manager") instance=ExtResource("4_wlri3")]
 position = Vector2(88.1179, 132)
