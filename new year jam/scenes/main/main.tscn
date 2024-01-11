@@ -177,13 +177,16 @@ position = Vector2(1540.06, 515)
 scale = Vector2(0.452072, 0.549372)
 transition_manager = NodePath("../TransitionLayer")
 
-[node name="BlackHole" parent="wormhole" instance=ExtResource("11_f2v4l")]
-position = Vector2(0.000270386, 1.82026)
+[node name="BlackHole" parent="." instance=ExtResource("11_f2v4l")]
+position = Vector2(1540.06, 516)
+rotation = 0.00104369
+scale = Vector2(0.452072, 0.549372)
+skew = -0.000337005
 
 [node name="TransitionLayer" parent="." instance=ExtResource("11_8nur0")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("orbit_manager") instance=ExtResource("4_wlri3")]
-position = Vector2(88.1179, 132)
+position = Vector2(60.0803, 49)
 orbit_manager = NodePath("../OrbitManager")
 
 [node name="FollowCam" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]

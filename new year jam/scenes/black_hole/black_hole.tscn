@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7vmiq5jegf65"]
+[gd_scene load_steps=10 format=3 uid="uid://c7vmiq5jegf65"]
 
 [ext_resource type="Shader" path="res://scenes/black_hole/black_hole.gdshader" id="1_f113p"]
 [ext_resource type="Texture2D" uid="uid://6mnt0uinecs8" path="res://icon.svg" id="2_6l1ce"]
@@ -14,17 +14,66 @@ curve = SubResource("Curve_ae0ky")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6nlot"]
 shader = ExtResource("1_f113p")
-shader_parameter/strength = 0.7
+shader_parameter/strength = 0.2
 shader_parameter/curve = SubResource("CurveTexture_hg1t7")
+
+[sub_resource type="Animation" id="Animation_omfsv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4d4hm"]
+resource_name = "rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 2.54912),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7jyi"]
+_data = {
+"RESET": SubResource("Animation_omfsv"),
+"rotate": SubResource("Animation_4d4hm")
+}
 
 [node name="BlackHole" type="Sprite2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_6nlot")
+rotation = 5.65487
 texture = ExtResource("2_6l1ce")
 
 [node name="Black" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(-2.38419e-07, 1.19209e-07)
 rotation = 3.14159
-scale = Vector2(0.0365608, -0.0597339)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_58ryj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_i7jyi")
+}
+autoplay = "rotate"
+speed_scale = 0.5
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
