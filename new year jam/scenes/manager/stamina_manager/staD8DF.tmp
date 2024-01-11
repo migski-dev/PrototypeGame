@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chaqq3ne7ph04"]
+
+[ext_resource type="Script" path="res://scenes/manager/stamina_manager/stamina_manager.gd" id="1_ekde2"]
+
+[node name="StaminaManager" type="Node"]
+script = ExtResource("1_ekde2")

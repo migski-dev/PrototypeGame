@@ -167,7 +167,7 @@ player = NodePath("../Player")
 tilemap = NodePath("../TileMap")
 
 [node name="wormhole" parent="." instance=ExtResource("9_c8cda")]
-position = Vector2(1739.33, 411)
+position = Vector2(141.189, 188)
 scale = Vector2(0.294661, 0.279573)
 
 [node name="Player" parent="." node_paths=PackedStringArray("orbit_manager") instance=ExtResource("4_wlri3")]
