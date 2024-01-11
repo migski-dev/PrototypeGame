@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://38mmnbij1n3a"]
+
+[ext_resource type="Texture2D" uid="uid://cfuhrqq3ylv0b" path="res://assets/Red1.png" id="1_ik27j"]
+[ext_resource type="Texture2D" uid="uid://bof18j7xuxt8v" path="res://assets/YellowStars.png" id="2_kfetq"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2(480, 270)
+transform = Transform2D(1, 0, 0, 1, 480, 270)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.25, 0)
+motion_mirroring = Vector2(960, 540)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.619608)
+texture = ExtResource("1_ik27j")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(960, 540)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+modulate = Color(1, 1, 1, 0.509804)
+texture = ExtResource("2_kfetq")
