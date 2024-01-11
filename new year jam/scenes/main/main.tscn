@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bp3l8aovtvlcw" path="res://scenes/game_object/player/player.tscn" id="4_wlri3"]
 [ext_resource type="PackedScene" uid="uid://c6ssky6koku0r" path="res://scenes/manager/asteroid_manager/asteroid_manager.tscn" id="6_5lv7h"]
 [ext_resource type="PackedScene" uid="uid://chaqq3ne7ph04" path="res://scenes/manager/stamina_manager/stamina_manager.tscn" id="6_yo2y2"]
-[ext_resource type="PackedScene" uid="uid://ew0w1b3u16cp" path="res://scenes/game_object/wormhole/Wormhole.tscn" id="9_c8cda"]
+[ext_resource type="PackedScene" uid="uid://ew0w1b3u16cp" path="res://scenes/game_object/wormhole/worm_hole.tscn" id="9_c8cda"]
 [ext_resource type="AudioStream" uid="uid://j68steh85wqq" path="res://assets/soundFX/OGG_Game_Jam_track.ogg" id="9_tk5un"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63evu"]
