@@ -172,7 +172,7 @@ player = NodePath("../Player")
 tilemap = NodePath("../TileMap")
 
 [node name="wormhole" parent="." node_paths=PackedStringArray("transition_manager") instance=ExtResource("9_c8cda")]
-position = Vector2(1718.3, 548)
+position = Vector2(1542.06, 515)
 scale = Vector2(0.294661, 0.279573)
 transition_manager = NodePath("../TransitionLayer")
 
