@@ -4,7 +4,7 @@ extends CanvasLayer
 
 func reload_scene_with_transition(transition_name):
 	await play_transition(transition_name).animation_finished
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene() 
 
 func load_scene_with_transition(target_scene,transition_name):
 	await play_transition(transition_name).animation_finished
