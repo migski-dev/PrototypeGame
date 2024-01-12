@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://chy1i2qg5bmcr"
+path="res://.godot/imported/yellow_star.aseprite-e63258f86ae6fab48a681b142ec38fbf.res"
+
+[deps]
+
+source_file="res://assets/finished_sprites/yellow_star.aseprite"
+dest_files=["res://.godot/imported/yellow_star.aseprite-e63258f86ae6fab48a681b142ec38fbf.res"]
+
+[params]
+
