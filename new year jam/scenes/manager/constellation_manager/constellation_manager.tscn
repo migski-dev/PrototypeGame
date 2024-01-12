@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/manager/constellation_manager/constellation_manager.gd" id="1_foeu1"]
 
-[node name="ConstellationManager" type="Node"]
+[node name="ConstellationManager" type="Node2D"]
 script = ExtResource("1_foeu1")

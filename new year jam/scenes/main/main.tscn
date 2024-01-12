@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=22 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="PackedScene" uid="uid://dk0xl3if1c4ne" path="res://scenes/ui/stamina_bar.tscn" id="1_k22fg"]
 [ext_resource type="PackedScene" uid="uid://dxnybk67rxr0l" path="res://scenes/ui/exit_prompt.tscn" id="2_ckfdl"]
 [ext_resource type="Texture2D" uid="uid://bmqipqpbnj7go" path="res://assets/colour_palette.png" id="2_r0h23"]
+[ext_resource type="PackedScene" uid="uid://ccat3qki7dxj6" path="res://scenes/ui/Friend UI/friend_count.tscn" id="3_eux7u"]
 [ext_resource type="PackedScene" uid="uid://bxpvjoirm48mm" path="res://scenes/manager/star_manager/star_manager.tscn" id="3_rhy5l"]
 [ext_resource type="PackedScene" uid="uid://b8t3dohy4cet8" path="res://scenes/parallax/parallax.tscn" id="3_un7ij"]
 [ext_resource type="PackedScene" uid="uid://j21yomhehfx0" path="res://scenes/manager/orbit_manager/orbit_manager.tscn" id="4_dkndy"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://4qb1sarsfh47" path="res://scenes/manager/constellation_manager/constellation_manager.tscn" id="10_1dr10"]
 [ext_resource type="PackedScene" uid="uid://cw3yqt48slpkc" path="res://scenes/manager/transition_manager/transition_manager.tscn" id="11_8nur0"]
 [ext_resource type="PackedScene" uid="uid://c7vmiq5jegf65" path="res://scenes/black_hole/black_hole.tscn" id="11_f2v4l"]
+[ext_resource type="PackedScene" uid="uid://c2wpm2vtdev6b" path="res://scenes/manager/friend_manager/friend_manager.tscn" id="11_r6ajf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63evu"]
 texture = ExtResource("1_2a3hw")
@@ -144,6 +146,8 @@ stamina_manager = NodePath("../StaminaManager")
 [node name="ExitPrompt" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ckfdl")]
 player = NodePath("../Player")
 
+[node name="FriendCount" parent="." instance=ExtResource("3_eux7u")]
+
 [node name="Parallax" parent="." instance=ExtResource("3_un7ij")]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -161,6 +165,9 @@ layer_2/tile_data = PackedInt32Array(142, 1, 1, 141, 1, 1, 140, 1, 1, 139, 1, 1,
 layer_3/name = "level_1"
 layer_3/enabled = false
 layer_3/tile_data = PackedInt32Array(1179668, 196608, 0, 1638432, 196608, 0, 2293784, 196608, 0, 1441835, 196608, 0, 458785, 196608, 0, 1048632, 196608, 0, 327749, 196608, 0, 2687028, 196608, 0, 3473468, 196608, 0, 3014729, 196608, 0, 3670109, 196608, 0, 3145825, 196608, 0, 1704017, 196608, 0, 2293854, 196608, 0, 1704036, 196608, 0, 1572974, 196608, 0)
+layer_4/name = "friends"
+layer_4/enabled = false
+layer_4/tile_data = PackedInt32Array(1900593, 131072, 0, 524362, 131072, 0, 3735645, 131072, 0, 3080216, 131072, 0)
 
 [node name="AsteroidManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("6_5lv7h")]
 tilemap = NodePath("../TileMap")
@@ -174,8 +181,12 @@ player = NodePath("../Player")
 tilemap = NodePath("../TileMap")
 
 [node name="ConstellationManager" parent="." instance=ExtResource("10_1dr10")]
+visible = false
 
-[node name="wormhole" parent="." node_paths=PackedStringArray("transition_manager") instance=ExtResource("9_c8cda")]
+[node name="FriendManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("11_r6ajf")]
+tilemap = NodePath("../TileMap")
+
+[node name="Wormhole" parent="." node_paths=PackedStringArray("transition_manager") instance=ExtResource("9_c8cda")]
 position = Vector2(1540.06, 515)
 scale = Vector2(0.452072, 0.549372)
 transition_manager = NodePath("../TransitionLayer")

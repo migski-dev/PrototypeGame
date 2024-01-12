@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccat3qki7dxj6"]
+
+[ext_resource type="FontFile" uid="uid://lvbnvfn7lfdo" path="res://assets/dialogues/dialogue_balloons/PixelifySans-VariableFont_wght.ttf" id="1_2q6hu"]
+[ext_resource type="Script" path="res://scenes/ui/Friend UI/friend_label.gd" id="2_7ditf"]
+
+[node name="FriendCount" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 102.0
+offset_bottom = 20.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2q6hu")
+script = ExtResource("2_7ditf")
