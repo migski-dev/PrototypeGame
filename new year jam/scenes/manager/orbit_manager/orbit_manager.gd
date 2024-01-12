@@ -34,6 +34,8 @@ func move_player_around_orbit(delta):
 	player.global_position = player.global_position.move_toward(star_to_orbit.orbit_point.global_position, ORBIT_FOLLOW_ACCEL * delta)
 
 func on_player_request_orbit_exit():
+	if(star_to_orbit == null):
+		return
 	move_player = false
 	var direction = star_to_orbit.global_position.direction_to(player.global_position)
 	var dir = star_to_orbit.orbit_point.global_position.direction_to(player.global_position)
