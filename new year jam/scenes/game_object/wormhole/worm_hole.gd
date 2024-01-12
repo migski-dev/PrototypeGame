@@ -7,6 +7,7 @@ const FILE_BEGIN = "res://scenes/levels/level_"
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
+		PathHandler.reset()
 		transition_manager.reload_scene_with_transition(transition_name) 
 		# This block is for changing hard coded scene Levels 
 		#var current_scene_file = get_tree().current_scene.scene_file_path
