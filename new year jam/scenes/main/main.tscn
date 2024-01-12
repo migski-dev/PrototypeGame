@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=19 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="PackedScene" uid="uid://dk0xl3if1c4ne" path="res://scenes/ui/stamina_bar.tscn" id="1_k22fg"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ew0w1b3u16cp" path="res://scenes/game_object/wormhole/worm_hole.tscn" id="9_c8cda"]
 [ext_resource type="AudioStream" uid="uid://j68steh85wqq" path="res://assets/soundFX/OGG_Game_Jam_track.ogg" id="9_tk5un"]
 [ext_resource type="PackedScene" uid="uid://cw3yqt48slpkc" path="res://scenes/manager/transition_manager/transition_manager.tscn" id="11_8nur0"]
+[ext_resource type="PackedScene" uid="uid://c7vmiq5jegf65" path="res://scenes/black_hole/black_hole.tscn" id="11_f2v4l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63evu"]
 texture = ExtResource("1_2a3hw")
@@ -172,14 +173,20 @@ player = NodePath("../Player")
 tilemap = NodePath("../TileMap")
 
 [node name="wormhole" parent="." node_paths=PackedStringArray("transition_manager") instance=ExtResource("9_c8cda")]
-position = Vector2(1718.3, 548)
-scale = Vector2(0.294661, 0.279573)
+position = Vector2(1540.06, 515)
+scale = Vector2(0.452072, 0.549372)
 transition_manager = NodePath("../TransitionLayer")
+
+[node name="BlackHole" parent="." instance=ExtResource("11_f2v4l")]
+position = Vector2(1540.06, 516)
+rotation = 0.00104369
+scale = Vector2(0.452072, 0.549372)
+skew = -0.000337005
 
 [node name="TransitionLayer" parent="." instance=ExtResource("11_8nur0")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("orbit_manager") instance=ExtResource("4_wlri3")]
-position = Vector2(88.1179, 132)
+position = Vector2(60.0803, 49)
 orbit_manager = NodePath("../OrbitManager")
 
 [node name="FollowCam" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]
