@@ -1,6 +1,7 @@
 extends Node
 
 signal stamina_updated(currrent_stamina: float)
+@onready var game_over = preload("res://scenes/game_over/game_over.tscn") as PackedScene
 
 const STAMINA_REGEN = .005
 
@@ -30,7 +31,8 @@ func increment_stamina():
 func decrement_stamina(number:float):
 	current_stamina -= number
 	stamina_updated.emit(current_stamina)
-	#print(current_stamina)
+	if current_stamina <= 0:
+		get_tree().change_scene_to_packed(game_over)
 
 
 func on_player_move(stamina_drain: float):
