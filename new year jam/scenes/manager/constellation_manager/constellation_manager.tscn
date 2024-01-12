@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4qb1sarsfh47"]
+
+[ext_resource type="Script" path="res://scenes/manager/constellation_manager/constellation_manager.gd" id="1_foeu1"]
+
+[node name="ConstellationManager" type="Node"]
+script = ExtResource("1_foeu1")

@@ -72,9 +72,11 @@ func _on_orbit_detection_area_entered(area):
 	movement_allowed = false
 	
 	orbiting_star = area.get_parent()
-
+		
 	await orbiting_star.star_orbit_entered
 	entered_star_orbit.emit(orbiting_star)
+	
+	PathHandler.add_star_position(orbiting_star.position)
 
 func on_orbit_exited():
 	movement_allowed = true
