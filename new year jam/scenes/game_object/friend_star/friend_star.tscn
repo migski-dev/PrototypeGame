@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://0nu2mux3cjrd"]
+[gd_scene load_steps=10 format=3 uid="uid://0nu2mux3cjrd"]
 
 [ext_resource type="Script" path="res://scenes/game_object/friend_star/friend_star.gd" id="1_lhpah"]
+[ext_resource type="PackedScene" uid="uid://dxca6v5kkfixx" path="res://scenes/game_object/star/star_visuals/big_teal_star.tscn" id="2_3nxm1"]
 [ext_resource type="Texture2D" uid="uid://sgjurjrpshyo" path="res://assets/FriendSprite.png" id="2_k6lfj"]
+[ext_resource type="PackedScene" uid="uid://dl2i2rvrpjv15" path="res://scenes/game_object/star/star_visuals/big_green_star.tscn" id="3_1svx4"]
 [ext_resource type="Script" path="res://scenes/game_object/star/RotateAnchor.gd" id="3_bpr0r"]
 [ext_resource type="Texture2D" uid="uid://bgd2a5j0oct3h" path="res://scenes/game_object/player/player.png" id="4_gfpsi"]
+[ext_resource type="PackedScene" uid="uid://bppxdpwlj41bp" path="res://scenes/game_object/star/star_visuals/big_yellow_star.tscn" id="4_lv8qd"]
 [ext_resource type="PackedScene" uid="uid://bhsmngj7x2aco" path="res://scenes/components/orbit_box/orbit_box.tscn" id="5_w73s5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dekqx"]
@@ -11,6 +14,7 @@ radius = 11.0
 
 [node name="FriendStar" type="Area2D" groups=["friends"]]
 script = ExtResource("1_lhpah")
+big_star_array = Array[PackedScene]([ExtResource("2_3nxm1"), ExtResource("3_1svx4"), ExtResource("4_lv8qd")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_k6lfj")

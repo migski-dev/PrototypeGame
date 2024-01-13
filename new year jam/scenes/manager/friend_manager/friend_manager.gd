@@ -16,7 +16,7 @@ func convert_grid_location_to_global(position: Vector2i):
 
 func create_friend(pos: Vector2i):
 	# turned off friends for debugging sprites
-	#var new_friend = friend_node.instantiate()
-	#new_friend.position = pos
-	#add_child(new_friend)
+	var new_friend = friend_node.instantiate()
+	new_friend.position = pos
+	add_child(new_friend)
 	pass
