@@ -1,6 +1,6 @@
 extends Area2D
 class_name Star
-@onready var planet = $Planet
+#@onready var planet = $Planet
 
 @export var star_size: Array[String] =  ["Small", "Medium", "Large"]
 @onready var sprite: Sprite2D = $Sprite2D

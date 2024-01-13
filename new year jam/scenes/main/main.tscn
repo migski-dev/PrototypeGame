@@ -178,12 +178,11 @@ player = NodePath("../Player")
 
 [node name="StaminaManager" parent="." instance=ExtResource("6_yo2y2")]
 
+[node name="ConstellationManager" parent="." instance=ExtResource("10_1dr10")]
+
 [node name="StarManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_rhy5l")]
 star_node = ExtResource("11_n1mpc")
 tilemap = NodePath("../TileMap")
-
-[node name="ConstellationManager" parent="." instance=ExtResource("10_1dr10")]
-visible = false
 
 [node name="FriendManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("11_r6ajf")]
 tilemap = NodePath("../TileMap")
