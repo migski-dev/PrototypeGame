@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c4xdivm56fom5"
+path="res://.godot/imported/scorpio_8.dialogue-fe2c250d48f89d7975f23486c43023c2.tres"
+
+[deps]
+
+source_file="res://dialogue/scorpio/scorpio_8.dialogue"
+dest_files=["res://.godot/imported/scorpio_8.dialogue-fe2c250d48f89d7975f23486c43023c2.tres"]
+
+[params]
+
+defaults=true
