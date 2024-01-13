@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bjcg3fqlge5wd"
+path="res://.godot/imported/leo_7.dialogue-f474d10e31a3125cd17e6aa53bb5c3e9.tres"
+
+[deps]
+
+source_file="res://dialogue/leo/leo_7.dialogue"
+dest_files=["res://.godot/imported/leo_7.dialogue-f474d10e31a3125cd17e6aa53bb5c3e9.tres"]
+
+[params]
+
+defaults=true

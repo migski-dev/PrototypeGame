@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dsmirjjecbt1f"
+path="res://.godot/imported/virgo_9.dialogue-7b83ae8de3a7a342ad50725e4544ed4f.tres"
+
+[deps]
+
+source_file="res://dialogue/virgo/virgo_9.dialogue"
+dest_files=["res://.godot/imported/virgo_9.dialogue-7b83ae8de3a7a342ad50725e4544ed4f.tres"]
+
+[params]
+
+defaults=true

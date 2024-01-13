@@ -6,7 +6,11 @@ extends Node2D
 @export var tilemap: TileMap
 #
 func _ready():
-	var spawn_locations = tilemap.get_used_cells_by_id(4)
+	# Designated TileMap layer generation
+	var level = 4 + FriendHandler.get_level()
+
+	var spawn_locations = tilemap.get_used_cells_by_id(level)
+	FriendHandler.set_friend_star_amount(spawn_locations.size())
 	for location in spawn_locations:
 		var converted_location = convert_grid_location_to_global(location)
 		create_friend(converted_location)
