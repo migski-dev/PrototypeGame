@@ -1,21 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://df4xityvlxgrr"]
+[gd_scene load_steps=17 format=3 uid="uid://df4xityvlxgrr"]
 
 [ext_resource type="Script" path="res://scenes/game_object/star/star.gd" id="1_f1qur"]
 [ext_resource type="Texture2D" uid="uid://df6e0ekeexwqw" path="res://assets/player-placeholder.png" id="1_fx2rj"]
+[ext_resource type="PackedScene" uid="uid://dslhqfbfq0tne" path="res://scenes/game_object/star/star_visuals/mid_teal_star.tscn" id="2_nocfv"]
 [ext_resource type="Script" path="res://scenes/game_object/star/RotateAnchor.gd" id="3_0vatv"]
-[ext_resource type="Texture2D" uid="uid://bgd2a5j0oct3h" path="res://scenes/game_object/player/player.png" id="4_vu0lo"]
+[ext_resource type="PackedScene" uid="uid://nc1dlhedat1q" path="res://scenes/game_object/star/star_visuals/mid_yellow_star.tscn" id="3_pn4du"]
+[ext_resource type="PackedScene" uid="uid://cwv3p1ujx80xx" path="res://scenes/game_object/star/star_visuals/mid_green_star.tscn" id="4_85pqu"]
+[ext_resource type="PackedScene" uid="uid://blwaqy44gdkrr" path="res://scenes/game_object/star/star_visuals/small_green_star.tscn" id="5_sljsu"]
 [ext_resource type="PackedScene" uid="uid://bhsmngj7x2aco" path="res://scenes/components/orbit_box/orbit_box.tscn" id="5_uhw33"]
+[ext_resource type="PackedScene" uid="uid://bh31avdqgqynf" path="res://scenes/game_object/star/star_visuals/small_teal_star.tscn" id="6_54k08"]
+[ext_resource type="Texture2D" uid="uid://b6pdxo6jlc1x8" path="res://assets/finished_sprites/planet_1.png" id="6_rnkq1"]
+[ext_resource type="Script" path="res://scenes/game_object/star/planet/Planet.gd" id="6_xvfsm"]
+[ext_resource type="PackedScene" uid="uid://bg7klb8mqdnfq" path="res://scenes/game_object/star/star_visuals/small_yellow_star.tscn" id="7_g5ycj"]
+[ext_resource type="PackedScene" uid="uid://dxca6v5kkfixx" path="res://scenes/game_object/star/star_visuals/big_teal_star.tscn" id="8_4tpxe"]
+[ext_resource type="PackedScene" uid="uid://dl2i2rvrpjv15" path="res://scenes/game_object/star/star_visuals/big_green_star.tscn" id="9_r0f6r"]
+[ext_resource type="PackedScene" uid="uid://bppxdpwlj41bp" path="res://scenes/game_object/star/star_visuals/big_yellow_star.tscn" id="10_h6c0c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g7470"]
 radius = 12.0
 
 [node name="Star" type="Area2D" groups=["stars"]]
 script = ExtResource("1_f1qur")
+mid_star_array = Array[PackedScene]([ExtResource("2_nocfv"), ExtResource("4_85pqu"), ExtResource("3_pn4du")])
+mini_star_array = Array[PackedScene]([ExtResource("6_54k08"), ExtResource("5_sljsu"), ExtResource("7_g5ycj")])
+big_star_array = Array[PackedScene]([ExtResource("8_4tpxe"), ExtResource("9_r0f6r"), ExtResource("10_h6c0c")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g7470")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_fx2rj")
 
@@ -24,8 +38,16 @@ script = ExtResource("3_0vatv")
 
 [node name="SnapPoint" type="Node2D" parent="RotateAnchor"]
 
-[node name="Sprite2D" type="Sprite2D" parent="RotateAnchor/SnapPoint"]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("4_vu0lo")
-
 [node name="OrbitBox" parent="." instance=ExtResource("5_uhw33")]
+
+[node name="Planet" type="Node2D" parent="."]
+visible = false
+y_sort_enabled = true
+script = ExtResource("6_xvfsm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet"]
+texture = ExtResource("6_rnkq1")
+
+[node name="Line2D" type="Line2D" parent="Planet"]
+closed = true
+width = 1.0

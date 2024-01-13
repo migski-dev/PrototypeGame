@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=23 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="PackedScene" uid="uid://dk0xl3if1c4ne" path="res://scenes/ui/stamina_bar.tscn" id="1_k22fg"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://4qb1sarsfh47" path="res://scenes/manager/constellation_manager/constellation_manager.tscn" id="10_1dr10"]
 [ext_resource type="PackedScene" uid="uid://cw3yqt48slpkc" path="res://scenes/manager/transition_manager/transition_manager.tscn" id="11_8nur0"]
 [ext_resource type="PackedScene" uid="uid://c7vmiq5jegf65" path="res://scenes/black_hole/black_hole.tscn" id="11_f2v4l"]
+[ext_resource type="PackedScene" uid="uid://df4xityvlxgrr" path="res://scenes/game_object/star/star.tscn" id="11_n1mpc"]
 [ext_resource type="PackedScene" uid="uid://c2wpm2vtdev6b" path="res://scenes/manager/friend_manager/friend_manager.tscn" id="11_r6ajf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63evu"]
@@ -178,6 +179,7 @@ player = NodePath("../Player")
 [node name="StaminaManager" parent="." instance=ExtResource("6_yo2y2")]
 
 [node name="StarManager" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_rhy5l")]
+star_node = ExtResource("11_n1mpc")
 tilemap = NodePath("../TileMap")
 
 [node name="ConstellationManager" parent="." instance=ExtResource("10_1dr10")]
@@ -214,5 +216,5 @@ tilemap = NodePath("../../TileMap")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_tk5un")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true

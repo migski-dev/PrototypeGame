@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://j6g6ynxvb3xo"]
+
+[ext_resource type="Texture2D" uid="uid://doxoo3l7xbrlm" path="res://scenes/game_object/star/star_visuals/outline.png" id="1_drcdj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bua8i"]
+blend_mode = 1
+
+[node name="MediumStarGlow" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_bua8i")
+texture = ExtResource("1_drcdj")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layer": "outline",
+"o_ex_p": "",
+"o_folder": "res://scenes/game_object/star/star_visuals",
+"o_name": "",
+"only_visible": false,
+"op_exp": true,
+"player": "AnimationPlayer",
+"source": "res://assets/finished_sprites/green_star.aseprite"
+}

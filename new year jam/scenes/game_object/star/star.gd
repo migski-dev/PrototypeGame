@@ -1,11 +1,18 @@
 extends Area2D
 class_name Star
+@onready var planet = $Planet
 
 @export var star_size: Array[String] =  ["Small", "Medium", "Large"]
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var orbit_box = $OrbitBox
 @onready var rotate_anchor = $RotateAnchor
+
+@export var mid_star_array : Array[PackedScene]
+@export var mini_star_array : Array[PackedScene]
+@export var big_star_array : Array[PackedScene]
+
 var orbit_point
+var size
 
 signal star_orbit_entered(star)
 
@@ -14,7 +21,7 @@ var orbit_size # for the orbit component
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	var size = get_random_size()
+	size = get_random_size()
 	set_sprite_scale(size)
 	
 	orbit_size = convert_size_to_int(size)
@@ -26,6 +33,11 @@ func _ready():
 	orbit_box.area_exited.connect(on_orbit_exited)
 	
 	orbit_point = rotate_anchor.snap_point
+	
+
+	
+	#if planet:
+		#planet.set_orbit(orbit_size)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,13 +49,19 @@ func get_random_size():
 func set_sprite_scale(sprite_size: String):
 	match (sprite_size):
 		"Small":
-			sprite.scale = Vector2(1,1)
+			var pick = mini_star_array.pick_random().instantiate()
+			add_child(pick)
+			(pick as StarVisual).trigger_twinkle_animation()
 			return
 		"Medium":
-			sprite.scale = Vector2(2,2)
+			var pick = mid_star_array.pick_random().instantiate()
+			add_child(pick)
+			(pick as StarVisual).trigger_twinkle_animation()
 			return
 		"Large":
-			sprite.scale = Vector2(3,3)
+			var pick = big_star_array.pick_random().instantiate()
+			add_child(pick)
+			(pick as StarVisual).trigger_twinkle_animation()
 			return
 
 func convert_size_to_int(size):
@@ -62,6 +80,7 @@ func on_orbit_entered(area):
 	rotate_anchor.orbit_started = true
 	rotate_anchor.rotation_dir = 1 if area.global_position.x > orbit_point.global_position.x else -1
 	star_orbit_entered.emit(self)
+		
 
 func on_orbit_exited(area):
 	rotate_anchor.orbit_started = false

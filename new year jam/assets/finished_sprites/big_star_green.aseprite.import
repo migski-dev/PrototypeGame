@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/big_star_green.aseprite-f64c085766195eb8e81d5
 
 [params]
 
-split_layers=false
-exclude_layers_pattern="twinkle"
+split_layers=true
+exclude_layers_pattern=""
 only_visible_layers=false
 sheet_type="Packed"
