@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://0nu2mux3cjrd"]
+
+[ext_resource type="Script" path="res://scenes/game_object/friend_star/friend_star.gd" id="1_lhpah"]
+[ext_resource type="Texture2D" uid="uid://sgjurjrpshyo" path="res://assets/FriendSprite.png" id="2_k6lfj"]
+[ext_resource type="Script" path="res://scenes/game_object/star/RotateAnchor.gd" id="3_bpr0r"]
+[ext_resource type="Texture2D" uid="uid://bgd2a5j0oct3h" path="res://scenes/game_object/player/player.png" id="4_gfpsi"]
+[ext_resource type="PackedScene" uid="uid://bhsmngj7x2aco" path="res://scenes/components/orbit_box/orbit_box.tscn" id="5_w73s5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dekqx"]
+radius = 11.0
+
+[node name="FriendStar" type="Area2D" groups=["friends"]]
+script = ExtResource("1_lhpah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_k6lfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dekqx")
+
+[node name="RotateAnchor" type="Node2D" parent="."]
+script = ExtResource("3_bpr0r")
+
+[node name="SnapPoint" type="Node2D" parent="RotateAnchor"]
+
+[node name="Sprite2D" type="Sprite2D" parent="RotateAnchor/SnapPoint"]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("4_gfpsi")
+
+[node name="OrbitBox" parent="." instance=ExtResource("5_w73s5")]

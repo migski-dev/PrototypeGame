@@ -1,11 +1,11 @@
 extends Node2D
 
-@onready var star_node = preload("res://scenes/game_object/star/star.tscn")
+@export var star_node : PackedScene
 @onready var screenSize: Vector2 = get_viewport().get_visible_rect().size
 @onready var screenSizeGrid: Dictionary
 @export var tilemap: TileMap
 
-var min_stars = 0
+var min_stars = 10
 var max_stars = 10
 
 func _ready():
@@ -37,3 +37,22 @@ func getSpawnLocation(spawnLocations: Array[Vector2i]):
 	spawnLocations.shuffle()
 	var location = spawnLocations.pop_front()
 	return location
+
+# old code i tried stuff out w/, but nothing came from it
+
+#func spawn_friends():
+	#var friend_spawns = tilemap.get_used_cells_by_id(4)
+	#print(friend_spawns)
+	#for location in friend_spawns:
+		#var converted_location = convert_grid_location_to_global(location)
+		#create_friend_star(converted_location)
+
+#func create_friend_star(pos):
+	#var new_star = star_node.instantiate()
+	#var new_friend = friend_component.instantiate()
+	#new_star.size = "Large"
+	#new_star.position = pos
+	#add_child(new_star)
+	#new_star.add_friend_component()
+	#print(new_friend)
+	#print(new_friend.get_path())

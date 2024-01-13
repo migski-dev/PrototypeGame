@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bp3l8aovtvlcw"]
+[gd_scene load_steps=27 format=3 uid="uid://bp3l8aovtvlcw"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_m2iwv"]
-[ext_resource type="Texture2D" uid="uid://bhxckgi4kchs6" path="res://assets/player-placeholder-16.png" id="2_ffgov"]
+[ext_resource type="Texture2D" uid="uid://ddy74462mvkrq" path="res://assets/finished_sprites/twinkle_particle_2.png" id="3_5vico"]
 [ext_resource type="PackedScene" uid="uid://dt6km7owkblb" path="res://scenes/components/orbit_detection/orbit_detection.tscn" id="3_jljpd"]
+[ext_resource type="Texture2D" uid="uid://bmtronhsiapqq" path="res://assets/finished_sprites/twinkle_particle_1.png" id="3_t30a8"]
+[ext_resource type="Texture2D" uid="uid://dh1vlfyn2vxlk" path="res://scenes/game_object/player/player_green.png" id="3_wqmuh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sfra7"]
 radius = 8.0
@@ -19,8 +21,8 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_u6qy6"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.193333, 0.553333, 0.82, 1)
-colors = PackedColorArray(0.968627, 0.937255, 0.780392, 1, 0.831373, 0.603922, 0.545098, 0.756863, 0.8, 0.52549, 0.490196, 0.466667, 0.8, 0.52549, 0.490196, 0)
+offsets = PackedFloat32Array(0, 0.510949, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.5829, 0.87, 0.759945, 1, 0.488, 0.6336, 0.8, 0)
 
 [sub_resource type="Curve" id="Curve_p7kfj"]
 _data = [Vector2(0, 1), 0.0, -0.435482, 0, 1, Vector2(1, 0), -3.02808, 0.0, 1, 0]
@@ -31,6 +33,249 @@ max_value = 100.0
 _data = [Vector2(0, 0), 0.0, 240.465, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_7y4aq"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0291971, 0.467153, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.36, 0.477333, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_4bycd"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteTilt/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_wqmuh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteTilt/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteTilt/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteTilt/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteTilt/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_dwhc2"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteTilt/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_wqmuh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteTilt/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteTilt/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteTilt/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteTilt/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_s5wsd"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteTilt/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_wqmuh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteTilt/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteTilt/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteTilt/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteTilt/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qgdt"]
+_data = {
+"Flying": SubResource("Animation_4bycd"),
+"Idle": SubResource("Animation_dwhc2"),
+"Transition": SubResource("Animation_s5wsd")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i06ev"]
+animation = &"Flying"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bcb7u"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fhntu"]
+animation = &"Transition"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fajak"]
+animation = &"Transition"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hag1m"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nisac"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jm5sa"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_icx3k"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k0fai"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q2ksb"]
+states/Flying/node = SubResource("AnimationNodeAnimation_i06ev")
+states/Flying/position = Vector2(719.4, 43.4)
+states/Idle/node = SubResource("AnimationNodeAnimation_bcb7u")
+states/Idle/position = Vector2(389.8, 65)
+states/Start/position = Vector2(178.4, 75.2)
+states/Transition/node = SubResource("AnimationNodeAnimation_fhntu")
+states/Transition/position = Vector2(545, 141.8)
+states/transition_2/node = SubResource("AnimationNodeAnimation_fajak")
+states/transition_2/position = Vector2(518.4, 0.200001)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_hag1m"), "Transition", "Flying", SubResource("AnimationNodeStateMachineTransition_nisac"), "Idle", "Transition", SubResource("AnimationNodeStateMachineTransition_jm5sa"), "Flying", "transition_2", SubResource("AnimationNodeStateMachineTransition_icx3k"), "transition_2", "Idle", SubResource("AnimationNodeStateMachineTransition_k0fai")]
+graph_offset = Vector2(72, -45)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_m2iwv")
@@ -39,53 +284,93 @@ script = ExtResource("1_m2iwv")
 wait_time = 0.5
 one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(1, 1.00258)
-texture = ExtResource("2_ffgov")
+[node name="OrbitDetection" parent="." instance=ExtResource("3_jljpd")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.1684e-19)
 shape = SubResource("CircleShape2D_sfra7")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
-amount = 64
-lifetime = 1.5
-speed_scale = 2.0
+amount = 50
+speed_scale = 0.7
 randomness = 0.45
+texture = ExtResource("3_5vico")
 emission_shape = 1
-emission_sphere_radius = 1.0
-spread = 90.0
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 60.0
 gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+radial_accel_min = 25.0
+radial_accel_max = 25.0
 tangential_accel_min = 10.0
 tangential_accel_max = 10.0
-damping_max = 16.0
 damping_curve = SubResource("Curve_821y6")
-scale_amount_max = 6.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.5
+scale_amount_max = 0.7
 scale_amount_curve = SubResource("Curve_ghuq4")
-color = Color(0.968627, 0.937255, 0.780392, 1)
 color_ramp = SubResource("Gradient_u6qy6")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 show_behind_parent = true
-amount = 12
+amount = 15
 speed_scale = 0.5
 randomness = 1.0
+texture = ExtResource("3_t30a8")
 emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
 linear_accel_min = -150.0
 linear_accel_max = -150.0
 linear_accel_curve = SubResource("Curve_p7kfj")
 damping_curve = SubResource("Curve_a7dra")
-scale_amount_max = 2.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.25
+scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_ghuq4")
-color = Color(0.968627, 0.937255, 0.780392, 1)
-color_ramp = SubResource("Gradient_u6qy6")
+color_ramp = SubResource("Gradient_7y4aq")
 
-[node name="OrbitDetection" parent="." instance=ExtResource("3_jljpd")]
+[node name="SpriteTilt" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteTilt"]
+texture_filter = 1
+texture = ExtResource("3_wqmuh")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://scenes/game_object/player",
+"o_name": "",
+"only_visible": false,
+"op_exp": true,
+"player": "AnimationPlayer",
+"source": "res://assets/finished_sprites/player_green.aseprite"
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4qgdt")
+}
+tree_root = SubResource("AnimationNodeStateMachine_q2ksb")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4qgdt")
+}
 
 [connection signal="area_entered" from="OrbitDetection" to="." method="_on_orbit_detection_area_entered"]

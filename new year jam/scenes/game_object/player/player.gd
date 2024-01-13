@@ -1,12 +1,20 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree["parameters/playback"]
+@onready var sprite_2d = $SpriteTilt/Sprite2D
+@onready var sprite_tilt = $SpriteTilt
+@onready var cpu_particles_2d = $CPUParticles2D # the trail
+
+
 @onready var exit_timer = $OrbitExitTimer
 @export var orbit_manager : OrbitManager
 
 const MAX_SPEED = 200
 const ACCEL_SMOOTHING = 3
 const STAMINA_DRAIN = 0.00075
+
 
 var movement_allowed = true
 var orbiting_star : Star
@@ -26,7 +34,7 @@ signal exiting_star_orbit
 
 signal timer_value() # for the UI
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	exit_timer.timeout.connect(on_exit_timer_timeout)
 	orbit_manager.orbit_exited.connect(on_orbit_exited)
@@ -44,6 +52,33 @@ func _process(delta):
 			exit_timer.stop()
 	
 	var dir: Vector2 = get_movement_vector()
+	
+	if not is_orbiting:
+		if dir:
+			state_machine.travel("Flying")
+		else:
+			state_machine.travel("Idle")
+	else:
+		state_machine.travel("Idle")
+	if dir:
+		cpu_particles_2d.emitting = true
+		if dir.x < 0:
+			sprite_2d.flip_h = true
+			cpu_particles_2d.direction = Vector2(1.0, 0.0)
+		else:
+			sprite_2d.flip_h = false
+			cpu_particles_2d.direction = Vector2(-1.0, 0.0)
+	else:
+		cpu_particles_2d.emitting = false
+		
+	if is_orbiting:
+		cpu_particles_2d.emitting = true
+		cpu_particles_2d.direction = global_position.direction_to(orbiting_star.global_position).rotated(PI/2)
+	#var max_angle = PI/2
+	#var min_angle = PI/2
+	#
+	#sprite_tilt.rotation = dir.angle() if sprite_2d.flip_h else -dir.angle()
+	
 	var target_velocity = dir * MAX_SPEED
 	
 	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCEL_SMOOTHING))
@@ -81,4 +116,3 @@ func _on_orbit_detection_area_entered(area):
 func on_orbit_exited():
 	movement_allowed = true
 	is_orbiting = false
-

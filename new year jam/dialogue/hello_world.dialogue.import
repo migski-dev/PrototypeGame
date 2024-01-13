@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://w0fiaan3kbjl"
+path="res://.godot/imported/hello_world.dialogue-3ebe1dcbc1be29c28dcfd84caba1330c.tres"
+
+[deps]
+
+source_file="res://dialogue/hello_world.dialogue"
+dest_files=["res://.godot/imported/hello_world.dialogue-3ebe1dcbc1be29c28dcfd84caba1330c.tres"]
+
+[params]
+
+defaults=true
