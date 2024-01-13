@@ -10,7 +10,6 @@ extends Node2D
 
 func _ready():
 	var spawn_locations = tilemap.get_used_cells_by_id(1)
-	print_debug("Tilemap", spawn_locations)
 	var star_count = set_star_count if set_star_count else randi_range(min_stars, max_stars)
 	for n in range(star_count):
 		create_star_in_random_position(spawn_locations)
@@ -24,7 +23,6 @@ func convert_grid_location_to_global(position: Vector2i):
 	return tilemap.map_to_local(position)
 
 func create_star(pos: Vector2i):
-	print_debug('Creating star', pos)
 	var new_star = star_node.instantiate()
 	new_star.position = pos
 	add_child(new_star)
