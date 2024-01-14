@@ -58,7 +58,6 @@ _data = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_6nlot")
-rotation = 5.65487
 texture = ExtResource("2_6l1ce")
 
 [node name="Black" type="Sprite2D" parent="Sprite2D"]

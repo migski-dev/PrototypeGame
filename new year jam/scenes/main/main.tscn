@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpmedye8vw1kg"]
+[gd_scene load_steps=22 format=3 uid="uid://cpmedye8vw1kg"]
 
 [ext_resource type="Texture2D" uid="uid://bic86xsl4pp0t" path="res://assets/placeholder_tilemap.png" id="1_2a3hw"]
 [ext_resource type="PackedScene" uid="uid://dk0xl3if1c4ne" path="res://scenes/ui/stamina_bar.tscn" id="1_k22fg"]
@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://j68steh85wqq" path="res://assets/soundFX/OGG_Game_Jam_track.ogg" id="9_tk5un"]
 [ext_resource type="PackedScene" uid="uid://4qb1sarsfh47" path="res://scenes/manager/constellation_manager/constellation_manager.tscn" id="10_1dr10"]
 [ext_resource type="PackedScene" uid="uid://cw3yqt48slpkc" path="res://scenes/manager/transition_manager/transition_manager.tscn" id="11_8nur0"]
-[ext_resource type="PackedScene" uid="uid://c7vmiq5jegf65" path="res://scenes/black_hole/black_hole.tscn" id="11_f2v4l"]
 [ext_resource type="PackedScene" uid="uid://df4xityvlxgrr" path="res://scenes/game_object/star/star.tscn" id="11_n1mpc"]
 [ext_resource type="PackedScene" uid="uid://c2wpm2vtdev6b" path="res://scenes/manager/friend_manager/friend_manager.tscn" id="11_r6ajf"]
 
@@ -192,12 +191,6 @@ tilemap = NodePath("../TileMap")
 position = Vector2(1540.06, 515)
 scale = Vector2(0.452072, 0.549372)
 transition_manager = NodePath("../TransitionLayer")
-
-[node name="BlackHole" parent="." instance=ExtResource("11_f2v4l")]
-position = Vector2(1540.06, 516)
-rotation = 0.00104369
-scale = Vector2(0.452072, 0.549372)
-skew = -0.000337005
 
 [node name="TransitionLayer" parent="." instance=ExtResource("11_8nur0")]
 
