@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://tjj1d82gcmas"]
+[gd_scene load_steps=5 format=3 uid="uid://tjj1d82gcmas"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_e8ptl"]
 [ext_resource type="Texture2D" uid="uid://wmad7joyxur" path="res://assets/temp-dial-button.png" id="1_pcn0s"]
 [ext_resource type="FontFile" uid="uid://lvbnvfn7lfdo" path="res://assets/dialogues/dialogue_balloons/PixelifySans-VariableFont_wght.ttf" id="2_2g20w"]
+[ext_resource type="AudioStream" uid="uid://bxjlxnlks5nph" path="res://assets/GAME_JAM_title_music (1).ogg" id="4_mo5b6"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -87,3 +88,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_2g20w")
 theme_override_font_sizes/font_size = 26
 text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mo5b6")
+autoplay = true
