@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://4qb1sarsfh47"]
+[gd_scene load_steps=3 format=3 uid="uid://4qb1sarsfh47"]
 
 [ext_resource type="Script" path="res://scenes/manager/constellation_manager/constellation_manager.gd" id="1_foeu1"]
+[ext_resource type="PackedScene" uid="uid://cx3gygu1rhaqr" path="res://scenes/components/constellation_edge/constellation_edge.tscn" id="2_f3uk6"]
 
 [node name="ConstellationManager" type="Node2D"]
 script = ExtResource("1_foeu1")
+edge = ExtResource("2_f3uk6")

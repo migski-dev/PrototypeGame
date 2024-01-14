@@ -1,4 +1,6 @@
 class_name ConstellationEdge extends Line2D
+@export var animation_player: AnimationPlayer
+
 
 var start : Vector2:
 	get:
@@ -12,3 +14,8 @@ var end : Vector2:
 	set(value):
 		start = value
 		PathHandler.path_ends.append(value)
+		#
+#func _ready():
+	#animation_player.play("fade_edge")
+func play_animation():
+	animation_player.play("fade_edge")
