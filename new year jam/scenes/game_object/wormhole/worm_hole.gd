@@ -5,13 +5,14 @@ extends Area2D
 @export var transition_name = "fade_out"
 
 @export var main_menu : PackedScene = preload("res://main_menu.tscn")
+@export var end_scene : PackedScene = preload("res://scenes/end_scene/end_scene.tscn")
 
 func _on_body_entered(body):
 	# Chillen this is the next level button logic
 	if body.is_in_group("player"):
 		var level = 4 + FriendHandler.get_level()
 		if(level == 6):
-			transition_manager.load_scene_with_transition(main_menu, transition_name)
+			transition_manager.load_scene_with_transition(end_scene, transition_name)
 		else:	
 			PathHandler.reset()
 			FriendHandler.reset_friends()
