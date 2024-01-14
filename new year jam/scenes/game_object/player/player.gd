@@ -14,7 +14,7 @@ class_name Player
 const MAX_SPEED = 200
 const ACCEL_SMOOTHING = 3
 const STAMINA_DRAIN = 0.0025
-
+#const STAMINA_DRAIN = 0.0
 
 var movement_allowed = true
 var orbiting_star : Star

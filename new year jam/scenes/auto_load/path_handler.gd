@@ -33,3 +33,12 @@ func reset():
 
 func return_array_of_lines():
 	pass
+
+func unique_stars() -> Array:
+	var unique: Array = []
+	
+	for star in stars_visited:
+		if not unique.has(star):
+			unique.append(star)
+			
+	return unique

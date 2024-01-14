@@ -11,11 +11,12 @@ const FILE_BEGIN = "res://scenes/levels/level_"
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		if(FriendHandler.check_level_finish()):
+		#if(true):
 			wormhole_sfx.play(0)
 			await get_tree().create_timer(.5).timeout
 			var ui = constellation_ui.instantiate() as ConstellationUI
 			get_tree().root.add_child(ui)
-			ui.initialize_constellation_window(PathHandler.path_starts, PathHandler.path_ends, "Asdjd", PathHandler.stars_visited.size(), 239)
+			ui.initialize_constellation_window(PathHandler.path_starts, PathHandler.path_ends, FriendHandler.constellation, PathHandler.unique_stars().size(), FriendHandler.friend_stars_visited.size() + FriendHandler.star_amount)
 		else: 
 			DialogueManager.show_dialogue_balloon(load("res://dialogue/wormhole_prompt.dialogue"), "start")
 		

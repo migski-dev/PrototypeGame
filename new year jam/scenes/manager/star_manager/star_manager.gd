@@ -25,6 +25,7 @@ func convert_grid_location_to_global(position: Vector2i):
 func create_star(pos: Vector2i):
 	var new_star = star_node.instantiate()
 	new_star.position = pos
+	FriendHandler.incr_star_amount()
 	add_child(new_star)
 
 func create_random_positions():

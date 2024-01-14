@@ -14,7 +14,7 @@ class_name ConstellationUI
 const resize_value = 10
 
 func initialize_constellation_window(starts : Array[Vector2], ends : Array[Vector2], constellation_name : String, stars_visited : int, stars_total : int):
-	constellation_name_label.text = constellation_name
+	constellation_name_label.text = constellation_name.capitalize()
 	for i in range(starts.size()):
 		line_2d.add_point(starts[i] / resize_value)
 		line_2d.add_point(ends[i] / resize_value)
@@ -25,7 +25,8 @@ func initialize_constellation_window(starts : Array[Vector2], ends : Array[Vecto
 	var center = line_start.x + width/2
 	var center_of_screen = Vector2(640/2, 360/2)
 	line_2d.global_position.x = line_2d.global_position.x + Vector2(center, 360/2).distance_to(center_of_screen)
-	line_2d.global_position.y = line_2d.global_position.y  + width
+	#line_2d.global_position.y = line_2d.global_position.y  + width/2
+	
 
 
 

@@ -8,6 +8,8 @@ var friend_star_amount = 9
 var friend_stars_visited: Array[FriendStar] = []
 var num_visited_friend_stars: int = 0
 
+var star_amount = 0
+
 
 func on_visit_friend_star(star: FriendStar):
 	if !friend_stars_visited.has(star):
@@ -21,12 +23,15 @@ func reset_friends():
 	num_visited_friend_stars = 0
 	level += 1
 	constellation = constellation_array[level]
+	star_amount = 0
 	
 
 func game_over():
-	level = 0
-	constellation = "leo"
+	friend_stars_visited = []
 	num_visited_friend_stars = 0
+	level = 0
+	constellation = constellation_array[level]
+	star_amount = 0
 	
 	
 func get_level():
@@ -37,7 +42,8 @@ func set_friend_star_amount(num: int):
 	friend_star_amount = num
 
 func check_level_finish():
-	if(friend_stars_visited.size() == friend_star_amount):
-		return true
-	else:
-		return false
+	return friend_stars_visited.size() == friend_star_amount
+		
+		
+func incr_star_amount():
+	star_amount += 1

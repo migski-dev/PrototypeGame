@@ -12,6 +12,7 @@ func _ready():
 
 
 func on_start_pressed() -> void:
+	FriendHandler.game_over()
 	get_tree().change_scene_to_packed(start_level)
 
 
