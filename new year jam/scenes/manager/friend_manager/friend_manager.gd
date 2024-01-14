@@ -8,6 +8,7 @@ extends Node2D
 func _ready():
 	# Designated TileMap layer generation
 	var level = 4 + FriendHandler.get_level()
+	#var level = 6 + FriendHandler.get_level()
 
 	var spawn_locations = tilemap.get_used_cells_by_id(level)
 	FriendHandler.set_friend_star_amount(spawn_locations.size())

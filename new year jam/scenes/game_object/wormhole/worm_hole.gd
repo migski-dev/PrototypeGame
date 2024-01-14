@@ -12,7 +12,7 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		if(FriendHandler.check_level_finish()):
 		#if(true):
-			wormhole_sfx.play(0)
+			#wormhole_sfx.play(0.0)
 			await get_tree().create_timer(.5).timeout
 			var ui = constellation_ui.instantiate() as ConstellationUI
 			get_tree().root.add_child(ui)

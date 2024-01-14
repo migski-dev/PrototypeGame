@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dy3wqea77tbfu"]
+[gd_scene load_steps=35 format=3 uid="uid://dy3wqea77tbfu"]
 
 [ext_resource type="Script" path="res://scenes/end_scene/end_scene.gd" id="1_hvtqi"]
 [ext_resource type="PackedScene" uid="uid://38mmnbij1n3a" path="res://scenes/parallax/parallax_background.tscn" id="1_w7a7s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddy74462mvkrq" path="res://assets/finished_sprites/twinkle_particle_2.png" id="4_6bxc3"]
 [ext_resource type="Texture2D" uid="uid://bmtronhsiapqq" path="res://assets/finished_sprites/twinkle_particle_1.png" id="5_38tg2"]
 [ext_resource type="Texture2D" uid="uid://dh1vlfyn2vxlk" path="res://scenes/game_object/player/player_green.png" id="6_6yfb1"]
+[ext_resource type="PackedScene" uid="uid://c7vmiq5jegf65" path="res://scenes/black_hole/black_hole.tscn" id="8_68ds6"]
 
 [sub_resource type="Curve2D" id="Curve2D_b3364"]
 bake_interval = 0.01
@@ -391,7 +392,6 @@ color_ramp = SubResource("Gradient_7y4aq")
 
 [node name="Sprite2D" type="Sprite2D" parent="MettiePath1/PathFollow2D/Player"]
 texture_filter = 1
-scale = Vector2(1, 1)
 texture = ExtResource("6_6yfb1")
 hframes = 2
 vframes = 2
@@ -435,7 +435,6 @@ loop = false
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AstraPath1/PathFollow2D"]
 rotation = -1.18533
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_0h7ma")
 flip_h = true
 
@@ -487,6 +486,10 @@ scale_amount_min = 0.25
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_ghuq4")
 color_ramp = SubResource("Gradient_2dqrk")
+
+[node name="BlackHole" parent="." instance=ExtResource("8_68ds6")]
+position = Vector2(152, 181)
+scale = Vector2(0.600001, 1)
 
 [connection signal="end_point_reached" from="MettiePath1" to="AstraPath1" method="_on_player_path_end_point_reached"]
 [connection signal="end_point_reached" from="AstraPath1" to="." method="_on_astra_path_1_end_point_reached"]

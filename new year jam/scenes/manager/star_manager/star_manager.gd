@@ -5,8 +5,8 @@ extends Node2D
 @onready var screenSizeGrid: Dictionary
 @export var tilemap: TileMap
 
-var min_stars = 10
-var max_stars = 10
+var min_stars = 18
+var max_stars = 18
 
 func _ready():
 	var spawn_locations = tilemap.get_used_cells_by_id(1)

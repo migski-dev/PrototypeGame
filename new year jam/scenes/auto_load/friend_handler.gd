@@ -4,7 +4,7 @@ var level = 0
 var constellation_array = ["leo", "scorpio", "virgo"]
 var constellation = constellation_array[level]
 
-var friend_star_amount = 9
+var friend_star_amount = 1
 var friend_stars_visited: Array[FriendStar] = []
 var num_visited_friend_stars: int = 0
 

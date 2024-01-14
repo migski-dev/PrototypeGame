@@ -20,7 +20,6 @@ shader_parameter/line_length = 2.0
 [node name="Wormhole" type="Area2D" node_paths=PackedStringArray("wormhole_sfx")]
 scale = Vector2(0.294267, 0.279573)
 script = ExtResource("1_cnlf0")
-transition_name = null
 wormhole_sfx = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
