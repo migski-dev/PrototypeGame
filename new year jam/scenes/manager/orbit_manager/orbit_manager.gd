@@ -11,6 +11,9 @@ const ORBIT_FOLLOW_ACCEL = 50
 
 signal orbit_exited
 # my wish is for this to control player orbit movement
+@export var enter_orbit_sfx: AudioStreamPlayer2D
+@export var exit_orbit_sfx: AudioStreamPlayer2D
+
 
 func _ready():
 	stars = get_tree().get_nodes_in_group("stars")
@@ -23,12 +26,15 @@ func _physics_process(delta):
 
 func on_player_enter_orbit(orbiting_star):
 	star_to_orbit = orbiting_star
+	
 	#var tween = get_tree().create_tween()
 	#tween.set_ease(Tween.EASE_OUT)
 	#tween.tween_property(player, "velocity", Vector2.ZERO, 0.5)
 	#tween.parallel().tween_property(player, "global_position", orbiting_star.orbit_point.global_position, 0.5)
 	#await tween.finished
 	move_player = true
+	
+	enter_orbit_sfx.play(0)
 
 func move_player_around_orbit(delta):
 	player.global_position = player.global_position.move_toward(star_to_orbit.orbit_point.global_position, ORBIT_FOLLOW_ACCEL * delta)
@@ -42,5 +48,6 @@ func on_player_request_orbit_exit():
 	var target_position : Vector2 = player.global_position + dir *30
 	
 	player.velocity = direction*100 # a little impulse for a smooth transition
+	exit_orbit_sfx.play(0)
 	await get_tree().create_timer(0.5).timeout # hard coded for safetyd
 	orbit_exited.emit()

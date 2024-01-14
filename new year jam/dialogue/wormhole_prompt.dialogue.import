@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dscf613l7ex7l"
+path="res://.godot/imported/wormhole_prompt.dialogue-c68343c3b6a51e1683cf89a38ca35eaa.tres"
+
+[deps]
+
+source_file="res://dialogue/wormhole_prompt.dialogue"
+dest_files=["res://.godot/imported/wormhole_prompt.dialogue-c68343c3b6a51e1683cf89a38ca35eaa.tres"]
+
+[params]
+
+defaults=true

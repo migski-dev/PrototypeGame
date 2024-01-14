@@ -35,3 +35,9 @@ func get_level():
 	
 func set_friend_star_amount(num: int):
 	friend_star_amount = num
+
+func check_level_finish():
+	if(friend_stars_visited.size() == friend_star_amount):
+		return true
+	else:
+		return false

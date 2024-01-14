@@ -33,6 +33,9 @@ func on_orbit_entered(area):
 	var constellation = FriendHandler.constellation
 	var path = constellation + "/" + constellation + "_" + star_num + ".dialogue"
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/" + path), "start")
+	body.is_in_dialogue = true
+	await DialogueManager.dialogue_ended
+	body.is_in_dialogue = false
 	#DialogueManager.show_dialogue_balloon(load("res://dialogue/hello_world.dialogue"), "start")
 
 func on_orbit_exited(area):

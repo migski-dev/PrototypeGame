@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://tjj1d82gcmas"]
+[gd_scene load_steps=6 format=3 uid="uid://tjj1d82gcmas"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_e8ptl"]
 [ext_resource type="Texture2D" uid="uid://wmad7joyxur" path="res://assets/temp-dial-button.png" id="1_pcn0s"]
 [ext_resource type="FontFile" uid="uid://lvbnvfn7lfdo" path="res://assets/dialogues/dialogue_balloons/PixelifySans-VariableFont_wght.ttf" id="2_2g20w"]
 [ext_resource type="AudioStream" uid="uid://bxjlxnlks5nph" path="res://assets/GAME_JAM_title_music (1).ogg" id="4_mo5b6"]
+[ext_resource type="AudioStream" uid="uid://bf535p3dvh2l6" path="res://assets/soundFX/GAME_JAM_select_sound.wav" id="5_jh60x"]
 
-[node name="main_menu" type="Control"]
+[node name="main_menu" type="Control" node_paths=PackedStringArray("button_sfx")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e8ptl")
+button_sfx = NodePath("AudioStreamPlayer2DButton")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -92,3 +94,8 @@ text = "Quit"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_mo5b6")
 autoplay = true
+
+[node name="AudioStreamPlayer2DButton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jh60x")
+
+[connection signal="finished" from="AudioStreamPlayer2DButton" to="." method="_on_audio_stream_player_2d_button_finished"]

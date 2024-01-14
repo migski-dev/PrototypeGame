@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Theme" uid="uid://c2ovrb67ifx60" path="res://assets/dialogues/dialogue_balloons/dialogue_theme.tres" id="2_i1ehf"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
-[ext_resource type="AudioStream" uid="uid://cjumce5y2hfd7" path="res://assets/dialogue_temp_2.ogg" id="5_2g13x"]
+[ext_resource type="AudioStream" uid="uid://crno2mo03egf5" path="res://assets/soundFX/FluteB.ogg" id="5_qdtki"]
 [ext_resource type="Script" path="res://assets/dialogues/dialogue_balloons/audio_speak.gd" id="6_h1e03"]
 
 [node name="ExampleBalloon" type="CanvasLayer"]
@@ -18,9 +18,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 21.0
-offset_top = -183.0
+offset_top = -125.0
 offset_right = -19.0
-offset_bottom = -19.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_i1ehf")
@@ -40,7 +40,7 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/Dialogue/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
@@ -54,8 +54,8 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.733333, 0.690196, 0.580392, 1)
-theme_override_font_sizes/normal_font_size = 28
-theme_override_font_sizes/bold_font_size = 28
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b]Character[/b]"
 fit_content = true
@@ -72,6 +72,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.968627, 0.937255, 0.780392, 1)
+theme_override_font_sizes/normal_font_size = 18
 text = "Dialogue..."
 seconds_per_step = 0.075
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
@@ -106,7 +107,7 @@ theme_override_colors/font_focus_color = Color(0.968627, 0.937255, 0.780392, 1)
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("label", "timer")]
-stream = ExtResource("5_2g13x")
+stream = ExtResource("5_qdtki")
 mix_target = 2
 bus = &"DialogueBus"
 script = ExtResource("6_h1e03")

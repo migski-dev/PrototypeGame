@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://j21yomhehfx0"]
+[gd_scene load_steps=4 format=3 uid="uid://j21yomhehfx0"]
 
 [ext_resource type="Script" path="res://scenes/manager/orbit_manager/orbit_manager.gd" id="1_eigfw"]
+[ext_resource type="AudioStream" uid="uid://cun68sda0c542" path="res://assets/soundFX/orbit_enter.ogg" id="2_btr1k"]
+[ext_resource type="AudioStream" uid="uid://bnfe1ul7t8gef" path="res://assets/soundFX/orbit_exit_loud.ogg" id="3_mhn2s"]
 
-[node name="OrbitManager" type="Node"]
+[node name="OrbitManager" type="Node" node_paths=PackedStringArray("enter_orbit_sfx", "exit_orbit_sfx")]
 script = ExtResource("1_eigfw")
+enter_orbit_sfx = NodePath("AudioStreamPlayer2DEnterOrbit")
+exit_orbit_sfx = NodePath("AudioStreamPlayer2DExitOrbit")
+
+[node name="AudioStreamPlayer2DEnterOrbit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_btr1k")
+
+[node name="AudioStreamPlayer2DExitOrbit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mhn2s")

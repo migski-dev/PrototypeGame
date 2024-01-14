@@ -21,6 +21,8 @@ var orbiting_star : Star
 var is_orbiting = false
 var tween
 
+var is_in_dialogue = false
+
 # Custom Signal to emit to stamina manager
 signal player_move(stamina_drain: float)
 
@@ -43,7 +45,7 @@ func on_exit_timer_timeout():
 	exiting_star_orbit.emit()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if is_orbiting:
+	if is_orbiting and not is_in_dialogue:
 		if Input.is_action_just_pressed("space"):
 			timer_value.emit()
 			exit_timer.start()
