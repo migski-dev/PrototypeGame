@@ -13,7 +13,7 @@ class_name Player
 
 const MAX_SPEED = 200
 const ACCEL_SMOOTHING = 3
-const STAMINA_DRAIN = 0.00075
+const STAMINA_DRAIN = 0.0025
 
 
 var movement_allowed = true
