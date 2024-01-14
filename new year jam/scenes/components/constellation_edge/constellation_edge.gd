@@ -1,10 +1,14 @@
 class_name ConstellationEdge extends Line2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+var start : Vector2:
+	get:
+		return start
+	set(value):
+		start = value
+		PathHandler.path_starts.append(value)
+var end : Vector2:
+	get:
+		return start
+	set(value):
+		start = value
+		PathHandler.path_ends.append(value)
