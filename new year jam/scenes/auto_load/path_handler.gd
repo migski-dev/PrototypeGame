@@ -2,6 +2,8 @@ extends Node
 
 var friend_star_amount = 3;
 var stars_visited: Array[Vector2] = []
+var path_starts : Array[Vector2] = []
+var path_ends : Array[Vector2] = []
 
 var head: Vector2
 var tail: Vector2
@@ -23,8 +25,11 @@ func add_star_position(pos: Vector2):
 		
 func get_stars_visited():
 	return stars_visited
-	
 
 func reset():
 	stars_visited = []
-	
+	path_starts = []
+	path_ends = []
+
+func return_array_of_lines():
+	pass
