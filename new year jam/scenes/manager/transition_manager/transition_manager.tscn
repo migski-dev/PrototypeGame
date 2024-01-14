@@ -54,7 +54,7 @@ _data = {
 "fade_out": SubResource("Animation_38ph8")
 }
 
-[node name="TransitionManager" type="CanvasLayer" node_paths=PackedStringArray("animation_player")]
+[node name="TransitionManager" type="CanvasLayer" node_paths=PackedStringArray("animation_player") groups=["transition_manager"]]
 script = ExtResource("1_2t07a")
 animation_player = NodePath("Rect/AnimationPlayer")
 

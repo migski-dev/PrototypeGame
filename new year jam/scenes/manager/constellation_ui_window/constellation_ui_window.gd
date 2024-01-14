@@ -6,6 +6,11 @@ class_name ConstellationUI
 @onready var friends_made = %FriendsMade
 @onready var line_2d = %Line2D
 
+@export var transition_manager: CanvasLayer
+@export var transition_name = "fade_out"
+@export var main_menu: PackedScene = preload("res://main_menu.tscn")
+@export var end_scene: PackedScene = preload("res://scenes/end_scene/end_scene.tscn")
+
 const resize_value = 10
 
 func initialize_constellation_window(starts : Array[Vector2], ends : Array[Vector2], constellation_name : String, stars_visited : int, stars_total : int):
@@ -25,4 +30,13 @@ func initialize_constellation_window(starts : Array[Vector2], ends : Array[Vecto
 
 
 func _on_button_pressed():
-	print("yeehaw")
+	var level = 4 + FriendHandler.get_level()
+	transition_manager = get_tree().get_first_node_in_group("transition_manager")
+	if(level == 6):
+		transition_manager.load_scene_with_transition(end_scene, transition_name)
+		self.hide()
+	else:    
+		PathHandler.reset()
+		FriendHandler.reset_friends()
+		transition_manager.reload_scene_with_transition(transition_name) 
+		self.hide()
