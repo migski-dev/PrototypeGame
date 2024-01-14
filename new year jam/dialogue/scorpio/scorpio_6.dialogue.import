@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cgrejbnh6h0qu"
+path="res://.godot/imported/scorpio_6.dialogue-6208b301e4b9690f13413ed43e9f9818.tres"
+
+[deps]
+
+source_file="res://dialogue/scorpio/scorpio_6.dialogue"
+dest_files=["res://.godot/imported/scorpio_6.dialogue-6208b301e4b9690f13413ed43e9f9818.tres"]
+
+[params]
+
+defaults=true
