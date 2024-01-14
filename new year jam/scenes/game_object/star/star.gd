@@ -2,7 +2,7 @@ extends Area2D
 class_name Star
 #@onready var planet = $Planet
 
-@export var star_size: Array[String] =  ["Small", "Medium", "Large"]
+@export var star_size: Array[String] =  ["Small", "Medium"]
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var orbit_box = $OrbitBox
 @onready var rotate_anchor = $RotateAnchor
